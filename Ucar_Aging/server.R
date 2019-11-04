@@ -207,7 +207,7 @@ shinyServer(function(input, output) {
     selectInput("plot_var", "Plot Type", plot_options)
   })
   
-  #Main Plot 
+  #Main Plot
   output$gene_main_plot <- renderPlot({
     graph_data <- input_data %>% filter(DataSource == input$data_var, GeneName == input$gene_var)
     if (input$data_var == "ATAC-seq") {
@@ -253,7 +253,7 @@ shinyServer(function(input, output) {
     plot_flow(flow_data, y = input$cell_var)
   })
   
-  #stats table  
+  #stats table
   output$flow_stats_table <- renderTable({
     scatter_stat(flow_data, input$cell_var)
     },
