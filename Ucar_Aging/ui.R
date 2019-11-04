@@ -32,12 +32,6 @@ shinyUI(
           )
         )
       ),
-    tabPanel("Explore Data by Gene Set",
-      fluidPage(
-        titlePanel("Gene Set Selection")
-        #gene set UI here
-        )
-      ),
     tabPanel("Explore Flow Cytometry Data",
       fluidPage(
         titlePanel("Flow Cytometry Data"),
