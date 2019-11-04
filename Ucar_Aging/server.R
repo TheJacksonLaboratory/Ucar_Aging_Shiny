@@ -239,8 +239,6 @@ shinyServer(function(input, output) {
     create_ts_message(input$gene_var, input$data_var)
   })
   
-  #TAB: GENE SET---------------
-  
   #TAB: FLOW DATA--------------
  
   #Input variables
