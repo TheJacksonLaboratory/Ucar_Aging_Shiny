@@ -209,7 +209,12 @@ shinyServer(function(input, output) {
   
   #Main Plot
   output$gene_main_plot <- renderPlot({
-    graph_data <- input_data %>% filter(DataSource == input$data_var, GeneName == input$gene_var)
+    if (input$gene_var %in% gene_list){
+      graph_data <- input_data %>% filter(DataSource == input$data_var, GeneName == input$gene_var)
+    } else {
+      graph_data <- input_data %>% filter(DataSource == input$data_var, GeneName == "A1BG")
+    }
+    
     if (input$data_var == "ATAC-seq") {
       ylab = "Normalized accessibility"
     } else if (input$data_var == "RNA-seq") {
@@ -224,7 +229,12 @@ shinyServer(function(input, output) {
 
   #stats table
   output$gene_stats_table <- renderTable({
-    stat_data <- input_data %>% filter(DataSource == input$data_var, GeneName == input$gene_var)
+    if (input$gene_var %in% gene_list){
+      stat_data <- input_data %>% filter(DataSource == input$data_var, GeneName == input$gene_var)
+    } else {
+      stat_data <- input_data %>% filter(DataSource == input$data_var, GeneName == "A1BG")
+    }
+    
     if (input$plot_var == "boxplot by age group"){
       boxplot_stat(stat_data) 
     } else if (input$plot_var == "scatterplot"){
