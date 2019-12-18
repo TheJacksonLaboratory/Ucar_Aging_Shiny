@@ -198,7 +198,7 @@ shinyServer(function(input, output) {
   
   #Input variables
   output$gene_choice = renderUI({
-    selectInput("gene_var", "Gene", gene_list)
+    selectizeInput("gene_var", "Gene", gene_list, options = list(maxOptions = 100000))
   })
   output$data_choice = renderUI({
     selectInput("data_var", "Data Type", data_source_options)
